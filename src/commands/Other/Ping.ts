@@ -1,14 +1,14 @@
-import { SapphireTemplateCommand } from '@lib/structures/SapphireTemplateCommand';
-import { SapphireTemplateCommandOptions } from '@lib/structures/SapphireTemplateCommandOptions';
+import { RISCommand } from '@lib/structures/RISCommand';
+import { RISCommandOptions } from '@lib/structures/RISCommandOptions';
 import { ApplyOptions } from '@sapphire/decorators';
 import { ApplicationCommandRegistry } from '@sapphire/framework';
 import { CommandInteraction } from 'discord.js';
 
-@ApplyOptions<SapphireTemplateCommandOptions>({
+@ApplyOptions<RISCommandOptions>({
     requiredUserPermissions: 'ADMINISTRATOR',
     description: 'Ping? Pong!'
 })
-export class Ping extends SapphireTemplateCommand {
+export class Ping extends RISCommand {
 
     public override async chatInputRun(interaction: CommandInteraction) {
         await interaction.reply(`Pong! Bot Latency ${Math.round(this.container.client.ws.ping)}ms.`);

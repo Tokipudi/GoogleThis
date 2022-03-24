@@ -2,7 +2,7 @@ import { ApplicationCommandRegistries, RegisterBehavior, SapphireClient } from '
 import '@sapphire/plugin-logger/register';
 import { ClientOptions } from "discord.js";
 
-export class SapphireTemplateClient extends SapphireClient {
+export class RISClient extends SapphireClient {
 
     public constructor(options: ClientOptions) {
         super(options);

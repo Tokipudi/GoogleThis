@@ -9,14 +9,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Tokipudi/SapphireTemplate.git"
+        "url": "git+https://github.com/Tokipudi/ReverseImageSearch.git"
     },
     "author": "Tokipudi",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/Tokipudi/SapphireTemplate/issues"
+        "url": "https://github.com/Tokipudi/ReverseImageSearch/issues"
     },
-    "homepage": "https://github.com/Tokipudi/SapphireTemplate#readme",
+    "homepage": "https://github.com/Tokipudi/ReverseImageSearch#readme",
     "dependencies": {
         "@sapphire/decorators": "2.2.0",
         "@sapphire/discord-utilities": "^2.1.5",

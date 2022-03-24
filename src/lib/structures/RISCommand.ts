@@ -1,11 +1,11 @@
 import { Command, PieceContext } from "@sapphire/framework";
-import { SapphireTemplateCommandOptions } from "./SapphireTemplateCommandOptions";
+import { RISCommandOptions } from "./RISCommandOptions";
 
-export abstract class SapphireTemplateCommand extends Command {
+export abstract class RISCommand extends Command {
 
     guildIds: string[];
 
-    public constructor(context: PieceContext, options?: SapphireTemplateCommandOptions) {
+    public constructor(context: PieceContext, options?: RISCommandOptions) {
         super(context, options);
         this.guildIds = [
             '890643277081092117', // Nox Local
