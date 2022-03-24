@@ -1,0 +1,48 @@
+{
+    "name": "@tokipudi/sapphire-template",
+    "version": "0.0.1",
+    "description": "A simple Sapphire-based bot",
+    "main": "build/src/index.js",
+    "scripts": {
+        "build": "npx ttsc --build --clean && npx ttsc --build --verbose",
+        "start": "node build/src/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Tokipudi/SapphireTemplate.git"
+    },
+    "author": "Tokipudi",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Tokipudi/SapphireTemplate/issues"
+    },
+    "homepage": "https://github.com/Tokipudi/SapphireTemplate#readme",
+    "dependencies": {
+        "@sapphire/decorators": "2.2.0",
+        "@sapphire/discord-utilities": "^2.1.5",
+        "@sapphire/discord.js-utilities": "^3.2.2",
+        "@sapphire/fetch": "1.0.5",
+        "@sapphire/framework": "next",
+        "@sapphire/plugin-logger": "1.0.13",
+        "@sapphire/utilities": "^2.0.1",
+        "@types/require-dir": "^1.0.2",
+        "discord.js": "^13.5.1",
+        "require-dir": "^1.2.0",
+        "sprintf-js": "1.1.2"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "13.1.0",
+        "@commitlint/config-conventional": "13.1.0",
+        "@favware/rollup-type-bundler": "1.0.3",
+        "@types/md5": "2.3.1",
+        "@types/sprintf-js": "1.1.2",
+        "@typescript-eslint/eslint-plugin": "4.31.0",
+        "@typescript-eslint/parser": "4.31.0",
+        "@zerollup/ts-transform-paths": "1.7.18",
+        "dotenv": "10.0.0",
+        "eslint": "7.32.0",
+        "tsconfig-paths": "^3.11.0",
+        "ttypescript": "1.5.12",
+        "typescript": "4.4.2"
+    }
+}
