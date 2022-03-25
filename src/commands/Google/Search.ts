@@ -1,4 +1,4 @@
-import { Dictionary, KnowledgePanel, Results, SearchResponse } from '@lib/interfaces/googlethis/SearchInterfaces';
+import { Dictionary, KnowledgePanel, Results, SearchResponse, Translation } from '@lib/interfaces/googlethis/SearchInterfaces';
 import { RISCommand } from '@lib/structures/GoogleThisCommand';
 import { RISCommandOptions } from '@lib/structures/GoogleThisCommandOptions';
 import { ApplyOptions } from '@sapphire/decorators';
@@ -100,6 +100,13 @@ export class Search extends RISCommand {
             }
         }
 
+        if ('translation' in search) {
+            const translationEmbed = await this.generateTranslationEmbed(search.translation);
+            if (translationEmbed) {
+                paginatedMessage.addPageEmbed(translationEmbed);
+            }
+        }
+
         const resultsEmbeds = this.generateResultsEmbeds(search.results);
         const chunkSize = 5;
         for (let i = 0; i < resultsEmbeds.length; i += chunkSize) {
@@ -197,6 +204,25 @@ export class Search extends RISCommand {
             i++;
         }
         embed.addField('Definition(s)', definitionArray.join('\n\n'));
+
+        return embed;
+    }
+
+    private async generateTranslationEmbed(translationData: Translation): Promise<MessageEmbed | false> {
+        if (
+            (translationData.source_text.length <= 0 || translationData.source_text === 'N/A')
+            && (translationData.target_text.length <= 0 || translationData.target_text === 'N/A')
+        ) {
+            return false;
+        }
+
+        const embed = new MessageEmbed()
+            .setAuthor({
+                name: 'Translate',
+                iconURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/512px-Google_Translate_logo.svg.png'
+            })
+            .addField(translationData.source_language, translationData.source_text, true)
+            .addField(translationData.target_language, translationData.target_text, true);
 
         return embed;
     }

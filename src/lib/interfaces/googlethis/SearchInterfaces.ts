@@ -6,7 +6,8 @@ export interface SearchResponse {
     top_stories: TopStories,
     people_also_ask: Array<string>,
     people_also_search_for: Array<string>,
-    dictionary: Dictionary
+    dictionary: Dictionary,
+    translation: Translation
 }
 
 export interface Result {
@@ -51,4 +52,11 @@ export interface Dictionary {
     audio: string,
     definitions: Array<string>,
     examples: Array<string>
+}
+
+export interface Translation {
+    source_language: string,
+    target_language: string,
+    source_text: string,
+    target_text: string
 }
