@@ -15,9 +15,14 @@ export class Ping extends RISCommand {
     }
 
     public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
-        registry.registerChatInputCommand({
-            name: this.name,
-            description: this.description
-        });
+        registry.registerChatInputCommand(
+            {
+                name: this.name,
+                description: this.description
+            },
+            {
+                guildIds: this.guildIds
+            }
+        );
     }
 }
