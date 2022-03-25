@@ -2,7 +2,7 @@ import { ApplicationCommandRegistries, RegisterBehavior, SapphireClient } from '
 import '@sapphire/plugin-logger/register';
 import { ClientOptions } from "discord.js";
 
-export class RISClient extends SapphireClient {
+export class GoogleThisClient extends SapphireClient {
 
     public constructor(options: ClientOptions) {
         super(options);

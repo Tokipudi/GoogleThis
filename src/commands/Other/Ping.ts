@@ -1,5 +1,5 @@
-import { RISCommand } from '@lib/structures/RISCommand';
-import { RISCommandOptions } from '@lib/structures/RISCommandOptions';
+import { RISCommand } from '@lib/structures/GoogleThisCommand';
+import { RISCommandOptions } from '@lib/structures/GoogleThisCommandOptions';
 import { ApplyOptions } from '@sapphire/decorators';
 import { ApplicationCommandRegistry } from '@sapphire/framework';
 import { CommandInteraction } from 'discord.js';

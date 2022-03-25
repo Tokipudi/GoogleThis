@@ -1,6 +1,6 @@
 import { LooseObject } from '@lib/interfaces/UtilInterfaces';
-import { RISCommand } from '@lib/structures/RISCommand';
-import { RISCommandOptions } from '@lib/structures/RISCommandOptions';
+import { RISCommand } from '@lib/structures/GoogleThisCommand';
+import { RISCommandOptions } from '@lib/structures/GoogleThisCommandOptions';
 import { ApplyOptions } from '@sapphire/decorators';
 import { PaginatedMessage } from '@sapphire/discord.js-utilities';
 import { ApplicationCommandRegistry, ContextMenuCommand } from '@sapphire/framework';

@@ -1,5 +1,5 @@
 import { Command, PieceContext } from "@sapphire/framework";
-import { RISCommandOptions } from "./RISCommandOptions";
+import { RISCommandOptions } from "./GoogleThisCommandOptions";
 
 export abstract class RISCommand extends Command {
 

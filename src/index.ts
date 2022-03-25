@@ -1,9 +1,9 @@
-import { RISClient } from '@lib/RISClient';
+import { GoogleThisClient } from '@lib/GoogleThisClient';
 import * as dotenv from 'dotenv';
 
 dotenv.config({ path: __dirname + '/../../.env' });
 
-const client = new RISClient({
+const client = new GoogleThisClient({
     intents: [
         'GUILDS',
         'GUILD_MESSAGES',
