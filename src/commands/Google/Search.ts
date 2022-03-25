@@ -169,6 +169,8 @@ export class Search extends RISCommand {
                 continue;
             }
 
+            k = k.replace('_', ' ');
+            k = k.charAt(0).toUpperCase() + k.slice(1);
             embed.addField(k, data, true);
         }
 
