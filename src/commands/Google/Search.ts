@@ -1,4 +1,4 @@
-import { KnowledgePanel, Results, SearchResponse } from '@lib/interfaces/googlethis/SearchInterfaces';
+import { Dictionary, KnowledgePanel, Results, SearchResponse } from '@lib/interfaces/googlethis/SearchInterfaces';
 import { RISCommand } from '@lib/structures/GoogleThisCommand';
 import { RISCommandOptions } from '@lib/structures/GoogleThisCommandOptions';
 import { ApplyOptions } from '@sapphire/decorators';
@@ -93,8 +93,14 @@ export class Search extends RISCommand {
             paginatedMessage.addPageEmbed(knowledgePanelEmbed);
         }
 
-        const resultsEmbeds = this.generateResultsEmbeds(search.results);
+        if ('dictionary' in search) {
+            const dictionaryEmbed = await this.generateDictionaryEmbed(search.dictionary);
+            if (dictionaryEmbed) {
+                paginatedMessage.addPageEmbed(dictionaryEmbed);
+            }
+        }
 
+        const resultsEmbeds = this.generateResultsEmbeds(search.results);
         const chunkSize = 5;
         for (let i = 0; i < resultsEmbeds.length; i += chunkSize) {
             paginatedMessage.addPageEmbeds(resultsEmbeds.slice(i, i + chunkSize));
@@ -162,6 +168,39 @@ export class Search extends RISCommand {
         return embed;
     }
 
+    private async generateDictionaryEmbed(dictionaryData: Dictionary): Promise<MessageEmbed | false> {
+        if (
+            (dictionaryData.word.length <= 0 || dictionaryData.word === 'N/A')
+            && dictionaryData.definitions.length <= 0
+        ) {
+            return false;
+        }
+
+        const embed = new MessageEmbed()
+            .setAuthor({
+                name: dictionaryData.word,
+                url: dictionaryData.audio,
+                iconURL: 'https://i.imgur.com/lbK1BPV.png'
+            });
+        if (dictionaryData.phonetic.length > 0 && dictionaryData.phonetic !== 'N/A') {
+            embed.setDescription(`*${dictionaryData.phonetic}*`);
+        }
+
+        const definitionArray = []
+        let i = 1;
+        for (let definition of dictionaryData.definitions) {
+            let str = `**${i}.** ${definition}`;
+            if (dictionaryData.examples[i - 1] !== undefined) {
+                str += `\n*ex: ${dictionaryData.examples[i - 1]}*`;
+            }
+            definitionArray.push(str);
+            i++;
+        }
+        embed.addField('Definition(s)', definitionArray.join('\n\n'));
+
+        return embed;
+    }
+
     private generateResultsEmbeds(results: Results): MessageEmbed[] {
         if (results.length <= 0) return [];
 
@@ -171,8 +210,11 @@ export class Search extends RISCommand {
                 .setAuthor({
                     name: result.title,
                     url: result.url
-                })
-                .setDescription(result.description);
+                });
+
+            if (result.description.length > 0 && result.description !== 'N/A') {
+                embed.setDescription(result.description);
+            }
 
             const favIcon = result.favicons.high_res ?? result.favicons.low_res;
             if (favIcon) {

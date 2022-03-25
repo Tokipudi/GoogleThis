@@ -5,7 +5,8 @@ export interface SearchResponse {
     featured_snippet: FeaturedSnippet,
     top_stories: TopStories,
     people_also_ask: Array<string>,
-    people_also_search_for: Array<string>
+    people_also_search_for: Array<string>,
+    dictionary: Dictionary
 }
 
 export interface Result {
@@ -43,3 +44,11 @@ export interface FeaturedSnippet {
 
 export interface TopStory { }
 export interface TopStories extends Array<TopStory> { }
+
+export interface Dictionary {
+    word: string,
+    phonetic: string,
+    audio: string,
+    definitions: Array<string>,
+    examples: Array<string>
+}
