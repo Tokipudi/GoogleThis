@@ -6,11 +6,21 @@ A Discord bot meant to integrate features from [LuanRT/google-this](https://gith
 
 ### Google Search
 
-Search for any query, or search for a query based on a user's message:
+#### Search for any query:
 
 ![Search Chat Input](https://github.com/Tokipudi/GoogleThis/blob/main/src/media/readme/searchchatinput.gif)
 
+#### Search for a query based on a user's message:
+
 ![Search Context Menu](https://github.com/Tokipudi/GoogleThis/blob/main/src/media/readme/searchcontextmenu.gif)
+
+#### Search for a word definition
+
+![Search Dictionary](https://github.com/Tokipudi/GoogleThis/blob/main/src/media/readme/dictionary.gif)
+
+#### Search for a word translation
+
+![Search Translate](https://github.com/Tokipudi/GoogleThis/blob/main/src/media/readme/translate.gif)
 
 ### Reverse Image Search
 
