@@ -31,7 +31,7 @@
         },
         "plugins": [
             {
-                "transform": "@zerollup/ts-transform-paths"
+                "transform": "@ovos-media/ts-transform-paths"
             }
         ],
         "baseUrl": ".",

@@ -9,9 +9,9 @@ import { ApplicationCommandTypes } from 'discord.js/typings/enums';
 import * as Google from 'googlethis';
 
 @ApplyOptions<RISCommandOptions>({
-    name: 'Reverse Search Image'
+    name: 'Reverse Image Search'
 })
-export class ReverseSearchImage extends RISCommand {
+export class ReverseImageSearch extends RISCommand {
 
     public override async contextMenuRun(interaction: ContextMenuInteraction, context: ContextMenuCommand.RunContext) {
         const message = await interaction.channel.messages.fetch(interaction.targetId);
@@ -38,7 +38,7 @@ export class ReverseSearchImage extends RISCommand {
         const resultUrls: LooseObject = {};
         let i = 0;
         for (let imageUrl of imageUrls) {
-            const results = await Google.default.search(imageUrl, { ris: true, safe: !channel.nsfw });
+            const results = await Google.default.search(imageUrl, { ris: true, safe: !channel.nsfw, additional_params: { hl: 'en' } });
             resultUrls[i] = {
                 url: imageUrl,
                 results: results.results
@@ -59,19 +59,13 @@ export class ReverseSearchImage extends RISCommand {
 
             const embed = new MessageEmbed()
                 .setColor('#4285F4')
-                .setAuthor({
-                    name: 'Google',
-                    iconURL: 'https://i.imgur.com/JoNC8fY.png'
-                })
                 .addField('Results', linkMsgArray.join('\n'))
                 .setImage(result.url);
 
             paginatedMessage.addPageEmbed(embed);
         }
 
-        paginatedMessage.run(message);
-
-        return interaction.deleteReply();
+        return paginatedMessage.run(interaction);
     }
 
     private getImageUrlsFromMessage(message: Message): string[] {

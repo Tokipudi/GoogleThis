@@ -1,49 +1,51 @@
 {
-    "name": "@tokipudi/sapphire-template",
-    "version": "0.0.1",
-    "description": "A simple Sapphire-based bot",
-    "main": "build/src/index.js",
-    "scripts": {
-        "build": "npx ttsc --build --clean && npx ttsc --build --verbose",
-        "start": "node build/src/index.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Tokipudi/ReverseImageSearch.git"
-    },
-    "author": "Tokipudi",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Tokipudi/ReverseImageSearch/issues"
-    },
-    "homepage": "https://github.com/Tokipudi/ReverseImageSearch#readme",
-    "dependencies": {
-        "@sapphire/decorators": "2.2.0",
-        "@sapphire/discord-utilities": "^2.1.5",
-        "@sapphire/discord.js-utilities": "^3.2.2",
-        "@sapphire/fetch": "1.0.5",
-        "@sapphire/framework": "next",
-        "@sapphire/plugin-logger": "1.0.13",
-        "@sapphire/utilities": "^2.0.1",
-        "@types/require-dir": "^1.0.2",
-        "discord.js": "^13.5.1",
-        "googlethis": "^1.2.7",
-        "require-dir": "^1.2.0",
-        "sprintf-js": "1.1.2"
-    },
-    "devDependencies": {
-        "@commitlint/cli": "13.1.0",
-        "@commitlint/config-conventional": "13.1.0",
-        "@favware/rollup-type-bundler": "1.0.3",
-        "@types/md5": "2.3.1",
-        "@types/sprintf-js": "1.1.2",
-        "@typescript-eslint/eslint-plugin": "4.31.0",
-        "@typescript-eslint/parser": "4.31.0",
-        "@zerollup/ts-transform-paths": "1.7.18",
-        "dotenv": "10.0.0",
-        "eslint": "7.32.0",
-        "tsconfig-paths": "^3.11.0",
-        "ttypescript": "1.5.12",
-        "typescript": "4.4.2"
-    }
+  "name": "@tokipudi/sapphire-template",
+  "version": "0.0.1",
+  "description": "A simple Sapphire-based bot",
+  "main": "build/src/index.js",
+  "scripts": {
+    "build-tsc": "tsc --build",
+    "build": "npx ttsc --build --clean && npx ttsc --build --verbose",
+    "start": "node build/src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tokipudi/ReverseImageSearch.git"
+  },
+  "author": "Tokipudi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tokipudi/ReverseImageSearch/issues"
+  },
+  "homepage": "https://github.com/Tokipudi/ReverseImageSearch#readme",
+  "dependencies": {
+    "@sapphire/decorators": "4.3.3",
+    "@sapphire/discord-utilities": "latest",
+    "@sapphire/discord.js-utilities": "latest",
+    "@sapphire/fetch": "2.3.0",
+    "@sapphire/framework": "next",
+    "@sapphire/plugin-logger": "latest",
+    "@sapphire/utilities": "^3.6.1",
+    "@types/require-dir": "^1.0.2",
+    "discord.js": "^13.6.0",
+    "googlethis": "^1.2.7",
+    "link-preview-js": "^2.1.13",
+    "require-dir": "^1.2.0",
+    "sprintf-js": "1.1.2"
+  },
+  "devDependencies": {
+    "@ovos-media/ts-transform-paths": "^1.7.18-1",
+    "@commitlint/cli": "16.2.3",
+    "@commitlint/config-conventional": "16.2.1",
+    "@favware/rollup-type-bundler": "1.0.7",
+    "@types/md5": "2.3.2",
+    "@types/sprintf-js": "1.1.2",
+    "@typescript-eslint/eslint-plugin": "5.16.0",
+    "@typescript-eslint/parser": "5.16.0",
+    "dotenv": "16.0.0",
+    "eslint": "8.11.0",
+    "tsconfig-paths": "^3.14.1",
+    "ttypescript": "1.5.13",
+    "typescript": "4.6.x"
+  }
 }
