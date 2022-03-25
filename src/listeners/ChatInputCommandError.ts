@@ -11,16 +11,15 @@ export class ChatInputCommandError extends Listener<typeof Events.ChatInputComma
 
         let errMsg = `An error occurred when trying to run this command.`;
 
-        this.container.logger.error(error);
-
-        return interaction.replied || interaction.deferred
-            ? interaction.followUp({
-                content: errMsg,
-                ephemeral: true
-            })
-            : interaction.reply({
-                content: errMsg,
-                ephemeral: true
+        if (interaction.replied || interaction.deferred) {
+            return interaction.editReply({
+                content: errMsg
             });
+        }
+
+        return interaction.reply({
+            content: errMsg,
+            ephemeral: true
+        });
     }
 };

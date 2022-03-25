@@ -10,14 +10,16 @@ export class ChatInputCommandDenied extends Listener<typeof Events.ChatInputComm
         const { interaction } = payload;
 
         const errMsg = `You are missing the required permissions to run this command.`;
-        return interaction.replied || interaction.deferred
-            ? interaction.followUp({
-                content: errMsg,
-                ephemeral: true
-            })
-            : interaction.reply({
-                content: errMsg,
-                ephemeral: true
+
+        if (interaction.replied || interaction.deferred) {
+            return interaction.editReply({
+                content: errMsg
             });
+        }
+
+        return interaction.reply({
+            content: errMsg,
+            ephemeral: true
+        });
     }
 };
