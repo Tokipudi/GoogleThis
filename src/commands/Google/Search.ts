@@ -119,8 +119,8 @@ export class Search extends RISCommand {
     private async generateKnowledgePanelEmbed(knowledgePanelData: KnowledgePanel): Promise<MessageEmbed | false> {
         if (
             (knowledgePanelData.title.length <= 0 || knowledgePanelData.title === 'N/A')
-            && (knowledgePanelData.description.length <= 0 || knowledgePanelData.description === 'N/A')
-            && (knowledgePanelData.url.length <= 0 || knowledgePanelData.url === 'N/A')
+            || (knowledgePanelData.description.length <= 0 || knowledgePanelData.description === 'N/A')
+            || (knowledgePanelData.url.length <= 0 || knowledgePanelData.url === 'N/A')
         ) {
             return false;
         }
@@ -133,7 +133,7 @@ export class Search extends RISCommand {
             });
 
         let description = '';
-        if (knowledgePanelData.type.length > 0 && knowledgePanelData.type !== 'N/A') {
+        if ('type' in knowledgePanelData && knowledgePanelData.type.length > 0 && knowledgePanelData.type !== 'N/A') {
             description += `*${knowledgePanelData.type}*\n\n`;
         }
         if (knowledgePanelData.description.length > 0 || knowledgePanelData.description !== 'N/A') {
@@ -184,6 +184,7 @@ export class Search extends RISCommand {
         }
 
         const embed = new MessageEmbed()
+            .setColor('#4285F4')
             .setAuthor({
                 name: dictionaryData.word,
                 url: dictionaryData.audio,
@@ -217,6 +218,7 @@ export class Search extends RISCommand {
         }
 
         const embed = new MessageEmbed()
+            .setColor('#4285F4')
             .setAuthor({
                 name: 'Translate',
                 iconURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/512px-Google_Translate_logo.svg.png'
