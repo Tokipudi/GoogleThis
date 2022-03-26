@@ -1,5 +1,5 @@
 {
-  "name": "@tokipudi/sapphire-template",
+  "name": "@tokipudi/googlethis",
   "version": "0.0.1",
   "description": "A simple Sapphire-based bot",
   "main": "build/src/index.js",
