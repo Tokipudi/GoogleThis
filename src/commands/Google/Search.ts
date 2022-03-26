@@ -237,6 +237,7 @@ export class Search extends RISCommand {
         const msgEmbeds = [];
         for (let result of results) {
             const embed = new MessageEmbed()
+                .setColor('#4285F4')
                 .setAuthor({
                     name: result.title,
                     url: result.url
