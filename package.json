@@ -7,6 +7,10 @@
     "build": "npx ttsc --build --clean && npx ttsc --build --verbose",
     "start": "node build/src/index.js"
   },
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tokipudi/ReverseImageSearch.git"
