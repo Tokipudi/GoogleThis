@@ -5,8 +5,7 @@
   "main": "build/src/index.js",
   "scripts": {
     "build": "npx ttsc --build --clean && npx ttsc --build --verbose",
-    "start": "node build/src/index.js",
-    "postinstall": "npm run build"
+    "start": "node build/src/index.js"
   },
   "engines": {
     "node": "16.x",
@@ -35,7 +34,8 @@
     "googlethis": "^1.2.7",
     "link-preview-js": "^2.1.13",
     "require-dir": "^1.2.0",
-    "sprintf-js": "1.1.2"
+    "sprintf-js": "1.1.2",
+    "dotenv": "16.0.0"
   },
   "devDependencies": {
     "@ovos-media/ts-transform-paths": "1.7.18-1",
@@ -46,7 +46,6 @@
     "@types/sprintf-js": "1.1.2",
     "@typescript-eslint/eslint-plugin": "5.16.0",
     "@typescript-eslint/parser": "5.16.0",
-    "dotenv": "16.0.0",
     "eslint": "8.12.0",
     "tsconfig-paths": "3.14.1",
     "ttypescript": "1.5.13",
