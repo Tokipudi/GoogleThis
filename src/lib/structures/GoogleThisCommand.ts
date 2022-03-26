@@ -10,6 +10,7 @@ export abstract class RISCommand extends Command {
         this.guildIds = [
             '890643277081092117', // Nox Local
             '890917187412439040', // Nox Local 2
+            '697390972744499271' // Corona
         ];
     }
 }
