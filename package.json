@@ -5,7 +5,8 @@
   "main": "build/src/index.js",
   "scripts": {
     "build": "npx ttsc --build --clean && npx ttsc --build --verbose",
-    "start": "node build/src/index.js"
+    "start": "node build/src/index.js",
+    "postinstall": "npm run build"
   },
   "engines": {
     "node": "16.x",
