@@ -4,7 +4,6 @@
   "description": "A simple Sapphire-based bot",
   "main": "build/src/index.js",
   "scripts": {
-    "build-tsc": "tsc --build",
     "build": "npx ttsc --build --clean && npx ttsc --build --verbose",
     "start": "node build/src/index.js"
   },
