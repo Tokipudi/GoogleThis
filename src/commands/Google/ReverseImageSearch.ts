@@ -53,7 +53,7 @@ export class ReverseImageSearch extends RISCommand {
             let linkMsgArray = [];
             let i = 1;
             for (let data of result.results) {
-                linkMsgArray.push(`**${i}.** <${data.url}>`);
+                linkMsgArray.push(`**${i}.** [${data.title}](${data.url})`);
                 i++;
             }
 
