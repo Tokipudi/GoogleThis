@@ -12,9 +12,9 @@ const client = new GoogleThisClient({
     presence: {
         status: "online",
         activities: [{
-            name: `Look at my profile to know more.`,
+            name: `Let me google that for you`,
             type: 'PLAYING',
-            url: 'https://github.com/Tokipudi/ReverseImageSearch'
+            url: 'https://github.com/Tokipudi/GoogleThis'
         }]
     },
     loadMessageCommandListeners: true
