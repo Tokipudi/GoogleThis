@@ -265,7 +265,10 @@ export class Search extends RISCommand {
                 type: ApplicationCommandTypes.MESSAGE
             },
             {
-                guildIds: this.guildIds
+                guildIds: this.guildIds,
+                idHints: [
+                    '957578240451571772' // Global
+                ]
             }
         );
 
@@ -285,8 +288,7 @@ export class Search extends RISCommand {
             {
                 guildIds: this.guildIds,
                 idHints: [
-                    '957578240451571772', // Context Menu Command -> Global
-                    '957578241235894372' // Chat Input Command -> Global
+                    '957578241235894372' // Global
                 ]
             }
         )
