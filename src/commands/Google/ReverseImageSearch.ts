@@ -98,7 +98,10 @@ export class ReverseImageSearch extends RISCommand {
                 type: ApplicationCommandTypes.MESSAGE
             },
             {
-                guildIds: this.guildIds
+                guildIds: this.guildIds,
+                idHints: [
+                    '957578239696572457' // Context Menu Command -> Global
+                ]
             }
         );
     }
