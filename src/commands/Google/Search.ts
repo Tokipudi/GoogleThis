@@ -49,6 +49,8 @@ export class Search extends RISCommand {
             });
         }
 
+        await interaction.editReply(`Here are the results for the message: ${message.url}`);
+
         return paginatedMessage.run(interaction);
     }
 
@@ -78,6 +80,8 @@ export class Search extends RISCommand {
                 content: `No results found for the query \`${query}\`.`
             });
         }
+
+        await interaction.editReply(`Here are the results for the query: \`${query}\``);
 
         return paginatedMessage.run(interaction);
     }

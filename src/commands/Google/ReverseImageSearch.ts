@@ -65,6 +65,8 @@ export class ReverseImageSearch extends RISCommand {
             paginatedMessage.addPageEmbed(embed);
         }
 
+        await interaction.editReply(`Here are the results for the message: ${message.url}`);
+
         return paginatedMessage.run(interaction);
     }
 
