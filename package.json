@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/Tokipudi/ReverseImageSearch#readme",
   "dependencies": {
-    "@sapphire/decorators": "4.3.3",
+    "@sapphire/decorators": "4.3.4",
     "@sapphire/discord-utilities": "latest",
     "@sapphire/discord.js-utilities": "latest",
     "@sapphire/fetch": "2.3.0",
