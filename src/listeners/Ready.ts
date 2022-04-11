@@ -14,5 +14,6 @@ export class Ready extends Listener<typeof Events.ClientReady> {
         this.container.logger.info('|_ Loaded ' + this.container.stores.get('interaction-handlers').size + ' interaction handlers.');
         this.container.logger.info('|_ Loaded ' + this.container.stores.get('listeners').size + ' listeners.');
         this.container.logger.info('|_ Loaded ' + this.container.stores.get('preconditions').size + ' preconditions.');
+        this.container.logger.info('GoogleThis started in ' + this.container.client.guilds.cache.size + ' guilds.');
     }
 };
