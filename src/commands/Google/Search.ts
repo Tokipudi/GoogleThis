@@ -236,8 +236,8 @@ export class Search extends RISCommand {
                 name: 'Translate',
                 iconURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/512px-Google_Translate_logo.svg.png'
             })
-            .addField(translationData.source_language, translationData.source_text, true)
-            .addField(translationData.target_language, translationData.target_text, true);
+            .addField(translationData.source_language, `\`${translationData.source_text}\``, true)
+            .addField(translationData.target_language, `\`${translationData.target_text}\``, true);
 
         return embed;
     }
