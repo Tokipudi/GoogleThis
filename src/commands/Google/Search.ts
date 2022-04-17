@@ -1,4 +1,4 @@
-import { Dictionary, KnowledgePanel, Results, SearchResponse, Translation } from '@lib/interfaces/googlethis/SearchInterfaces';
+import { Dictionary, KnowledgePanel, Results, SearchResponse, Translation, UnitConverter } from '@lib/interfaces/googlethis/SearchInterfaces';
 import { RISCommand } from '@lib/structures/GoogleThisCommand';
 import { RISCommandOptions } from '@lib/structures/GoogleThisCommandOptions';
 import { ApplyOptions } from '@sapphire/decorators';
@@ -89,7 +89,10 @@ export class Search extends RISCommand {
     private async generatePaginatedMessage(query: string, nsfw: boolean = false) {
         const search: SearchResponse = await Google.default.search(query, { page: 0, safe: nsfw, additional_params: { hl: 'en' } });
 
-        const paginatedMessage = new PaginatedMessage();
+        const paginatedMessage = new PaginatedMessage({
+            template: new MessageEmbed()
+                .setColor('#4285F4')
+        });
 
         // Generate Knowledge Panel first
         const knowledgePanelEmbed = await this.generateKnowledgePanelEmbed(search.knowledge_panel);
@@ -108,6 +111,13 @@ export class Search extends RISCommand {
             const translationEmbed = await this.generateTranslationEmbed(search.translation);
             if (translationEmbed) {
                 paginatedMessage.addPageEmbed(translationEmbed);
+            }
+        }
+
+        if ('unit_converter' in search) {
+            const unitConverterEmbed = await this.generateUnitConverterEmbed(search.unit_converter);
+            if (unitConverterEmbed) {
+                paginatedMessage.addPageEmbed(unitConverterEmbed);
             }
         }
 
@@ -130,7 +140,6 @@ export class Search extends RISCommand {
         }
 
         const embed = new MessageEmbed()
-            .setColor('#4285F4')
             .setAuthor({
                 name: knowledgePanelData.title,
                 url: knowledgePanelData.url.length <= 0 || knowledgePanelData.url === 'N/A' ? '' : knowledgePanelData.url
@@ -190,7 +199,6 @@ export class Search extends RISCommand {
         }
 
         const embed = new MessageEmbed()
-            .setColor('#4285F4')
             .setAuthor({
                 name: dictionaryData.word,
                 url: dictionaryData.audio,
@@ -224,7 +232,6 @@ export class Search extends RISCommand {
         }
 
         const embed = new MessageEmbed()
-            .setColor('#4285F4')
             .setAuthor({
                 name: 'Translate',
                 iconURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Translate_logo.svg/512px-Google_Translate_logo.svg.png'
@@ -235,13 +242,35 @@ export class Search extends RISCommand {
         return embed;
     }
 
+    private async generateUnitConverterEmbed(unitConverterData: UnitConverter): Promise<MessageEmbed | false> {
+        if (
+            (unitConverterData.input.length <= 0 || unitConverterData.input === 'N/A')
+            && (unitConverterData.output.length <= 0 || unitConverterData.output === 'N/A')
+        ) {
+            return false;
+        }
+
+        const embed = new MessageEmbed()
+            .setAuthor({
+                name: `Unit Converter`,
+                iconURL: 'https://i.imgur.com/D5XSxB8.png'
+            })
+            .addField('Input', `\`${unitConverterData.input}\``, true)
+            .addField('Output', `\`${unitConverterData.output}\``, true);
+
+        if ('formula' in unitConverterData && unitConverterData.formula.length > 0 && unitConverterData.formula !== 'N/A') {
+            embed.setDescription(`*${unitConverterData.formula.charAt(0).toUpperCase() + unitConverterData.formula.slice(1)}*`)
+        }
+
+        return embed;
+    }
+
     private generateResultsEmbeds(results: Results): MessageEmbed[] {
         if (results.length <= 0) return [];
 
         const msgEmbeds = [];
         for (let result of results) {
             const embed = new MessageEmbed()
-                .setColor('#4285F4')
                 .setAuthor({
                     name: result.title,
                     url: result.url

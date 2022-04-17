@@ -7,7 +7,8 @@ export interface SearchResponse {
     people_also_ask: Array<string>,
     people_also_search_for: Array<string>,
     dictionary: Dictionary,
-    translation: Translation
+    translation: Translation,
+    unit_converter: UnitConverter
 }
 
 export interface Result {
@@ -59,4 +60,10 @@ export interface Translation {
     target_language: string,
     source_text: string,
     target_text: string
+}
+
+export interface UnitConverter {
+    input: string,
+    output: string,
+    formula: string
 }
