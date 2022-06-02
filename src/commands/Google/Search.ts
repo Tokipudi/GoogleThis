@@ -87,7 +87,9 @@ export class Search extends RISCommand {
     }
 
     private async generatePaginatedMessage(query: string, nsfw: boolean = false) {
-        const search: SearchResponse = await Google.default.search(query, { page: 0, safe: nsfw, additional_params: { hl: 'en' } });
+        // Avoid type error
+        const googleThisApi = Google as any;
+        const search: SearchResponse = await googleThisApi.default.search(query, { page: 0, safe: nsfw, additional_params: { hl: 'en' } });
 
         const paginatedMessage = new PaginatedMessage({
             template: new MessageEmbed()
