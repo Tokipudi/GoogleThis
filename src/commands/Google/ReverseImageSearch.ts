@@ -37,8 +37,10 @@ export class ReverseImageSearch extends RISCommand {
 
         const resultUrls: LooseObject = {};
         let i = 0;
+        // Avoid type error
+        const googleThisApi = Google as any;
         for (let imageUrl of imageUrls) {
-            const results = await Google.default.search(imageUrl, { ris: true, safe: !channel.nsfw, additional_params: { hl: 'en' } });
+            const results = await googleThisApi.default.search(imageUrl, { ris: true, safe: !channel.nsfw, additional_params: { hl: 'en' } });
             resultUrls[i] = {
                 url: imageUrl,
                 results: results.results
