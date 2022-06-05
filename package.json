@@ -25,7 +25,7 @@
     "@sapphire/decorators": "4.3.4",
     "@sapphire/discord-utilities": "latest",
     "@sapphire/discord.js-utilities": "latest",
-    "@sapphire/fetch": "2.3.1",
+    "@sapphire/fetch": "2.4.0",
     "@sapphire/framework": "next",
     "@sapphire/plugin-logger": "latest",
     "@sapphire/utilities": "^3.6.1",
