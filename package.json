@@ -39,8 +39,8 @@
   },
   "devDependencies": {
     "@ovos-media/ts-transform-paths": "1.7.18-1",
-    "@commitlint/cli": "17.0.2",
-    "@commitlint/config-conventional": "17.0.2",
+    "@commitlint/cli": "17.0.3",
+    "@commitlint/config-conventional": "17.0.3",
     "@favware/rollup-type-bundler": "1.0.8",
     "@types/md5": "2.3.2",
     "@types/sprintf-js": "1.1.2",
