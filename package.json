@@ -30,7 +30,7 @@
     "@sapphire/plugin-logger": "latest",
     "@sapphire/utilities": "^3.6.1",
     "@types/require-dir": "^1.0.2",
-    "discord.js": "^13.6.0",
+    "discord.js": "^14.0.0",
     "googlethis": "^1.2.7",
     "link-preview-js": "^2.1.13",
     "require-dir": "^1.2.0",
