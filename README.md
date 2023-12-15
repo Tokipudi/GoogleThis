@@ -35,8 +35,6 @@ If you want to clone this project and run it on your end, here are the first ste
 ## Pre-requisites
 
 * Node >= 16
-* A Postgresql Database
-* Hirez developer API credentials (you can request them [here](https://fs12.formsite.com/HiRez/form48/secure_index.html))
 
 ## Installation
 
